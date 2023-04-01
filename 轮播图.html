@@ -161,7 +161,6 @@
 
         //给小点点添加下标
         for (let i = 0; i < subscript.children.length; i++) {
-            //i+1是为了让下标从1开始,避免下面的计算出现负数
             subscript.children[i].setAttribute('index', i)
         }
         //给content子元素添加下标
@@ -194,13 +193,10 @@
                 for (let i = 0; i < subscript.children.length; i++) {
                     subscript.children[i].classList.remove('active')
                 }
-                //由于是从第二张开始轮播，所以要减一
-                console.log(indexContent);
+                //因为是从第二个开始轮播，所以要减一
                 let num = +indexContent - 1
-                console.log(num);
-                if (num == -1) {
-                    num = 4
-                }
+                //当下标为-1时，让下标为4，即最后一张图片
+                if (num == -1) num = 4
                 //给当前小点点添加样式
                 subscript.children[num].classList.add('active')
 
