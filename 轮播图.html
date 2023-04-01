@@ -65,7 +65,8 @@
             left: -700px;
         }
 
-        轮播图 img {
+        /*轮播图*/
+        img {
             width: 700px;
             height: 100%;
         }
@@ -95,17 +96,6 @@
 
         .subscript .active {
             background: red;
-        }
-
-        .Image {
-            width: 100%;
-            height: 200px;
-            display: flex;
-        }
-
-        .image img {
-            width: 350;
-            height: 200px;
         }
     </style>
 </head>
@@ -172,11 +162,11 @@
         //给小点点添加下标
         for (let i = 0; i < subscript.children.length; i++) {
             //i+1是为了让下标从1开始,避免下面的计算出现负数
-            subscript.children[i].setAttribute('index', i + 1)
+            subscript.children[i].setAttribute('index', i)
         }
         //给content子元素添加下标
         for (let i = 0; i < content.children.length; i++) {
-            content.children[i].setAttribute('index', i + 1)
+            content.children[i].setAttribute('index', i)
         }
 
         // 定义一个变量用来存储定时器
@@ -205,7 +195,12 @@
                     subscript.children[i].classList.remove('active')
                 }
                 //由于是从第二张开始轮播，所以要减一
-                const num = +indexContent - 1
+                console.log(indexContent);
+                let num = +indexContent - 1
+                console.log(num);
+                if (num == -1) {
+                    num = 4
+                }
                 //给当前小点点添加样式
                 subscript.children[num].classList.add('active')
 
