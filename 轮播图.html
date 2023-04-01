@@ -128,7 +128,14 @@
     let content = document.getElementsByClassName('content')[0]//内容区域
     let subscript = document.getElementsByClassName('subscript')[0]//小点点
     //创建图片数组
-    let imgs = ["https://ts1.cn.mm.bing.net/th/id/R-C.066f6e476e7500752d2d4079cf552248?rik=kG2nn2uYJS9gwg&riu=http%3a%2f%2fimage.qianye88.com%2fpic%2f58bdafff649da2748deba9c33523b541&ehk=AJHje9nuje4uo6h0bEvmylFnfYAmWeUphxGWLDtTZN4%3d&risl=&pid=ImgRaw&r=0", "https://ts1.cn.mm.bing.net/th/id/R-C.3f3563512ddcf9ee8f040fb9d9f7cbd4?rik=MyUvC%2fSSmabcSg&riu=http%3a%2f%2fimg.mm4000.com%2ffile%2fa%2fc8%2ff17d8fabe5.jpg%3fdown&ehk=vqJJjWDEcZqlCQkS1OQYsoUQZMy5LXnqyDnEumXgNpA%3d&risl=&pid=ImgRaw&r=0", "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0C/04/ChMkJlX7spWIO6IkABNZggA_NeAAACwsgBQVrUAE1ma178.jpg", "https://ts1.cn.mm.bing.net/th/id/R-C.cbacf381f2ea27692c235bda74a58dd0?rik=CmZzyVss%2fFedrA&riu=http%3a%2f%2fpic.qqbizhi.com%2fallimg%2fbbpic%2f38%2f3938_5.jpg&ehk=T19sJsuTx1%2bbDV1o3EgLCVBpDkRwyT3JiOf10rG6HM0%3d&risl=&pid=ImgRaw&r=0", "https://ts1.cn.mm.bing.net/th/id/R-C.521e00219071d28390addd66c4e15ac7?rik=NFiRzbrGQgWa7w&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1603%2f30%2fc0%2f19798911_1459348273568.jpg&ehk=yrDcSzLvJhCJimeOO1SHJ09Q2sXDQydkPdN4wqRuTVs%3d&risl=&pid=ImgRaw&r=0",]
+    let imgs = ["https://ts1.cn.mm.bing.net/th/id/R-C.066f6e476e7500752d2d4079cf552248?rik=kG2nn2uYJS9gwg&riu=http%3a%2f%2fimage.qianye88.com%2fpic%2f58bdafff649da2748deba9c33523b541&ehk=AJHje9nuje4uo6h0bEvmylFnfYAmWeUphxGWLDtTZN4%3d&risl=&pid=ImgRaw&r=0", "https://ts1.cn.mm.bing.net/th/id/R-C.3f3563512ddcf9ee8f040fb9d9f7cbd4?rik=MyUvC%2fSSmabcSg&riu=http%3a%2f%2fimg.mm4000.com%2ffile%2fa%2fc8%2ff17d8fabe5.jpg%3fdown&ehk=vqJJjWDEcZqlCQkS1OQYsoUQZMy5LXnqyDnEumXgNpA%3d&risl=&pid=ImgRaw&r=0", "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0C/04/ChMkJlX7spWIO6IkABNZggA_NeAAACwsgBQVrUAE1ma178.jpg", "https://ts1.cn.mm.bing.net/th/id/R-C.cbacf381f2ea27692c235bda74a58dd0?rik=CmZzyVss%2fFedrA&riu=http%3a%2f%2fpic.qqbizhi.com%2fallimg%2fbbpic%2f38%2f3938_5.jpg&ehk=T19sJsuTx1%2bbDV1o3EgLCVBpDkRwyT3JiOf10rG6HM0%3d&risl=&pid=ImgRaw&r=0",
+        "https://ts1.cn.mm.bing.net/th/id/R-C.521e00219071d28390addd66c4e15ac7?rik=NFiRzbrGQgWa7w&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1603%2f30%2fc0%2f19798911_1459348273568.jpg&ehk=yrDcSzLvJhCJimeOO1SHJ09Q2sXDQydkPdN4wqRuTVs%3d&risl=&pid=ImgRaw&r=0",
+        "https://ts1.cn.mm.bing.net/th/id/R-C.521e00219071d28390addd66c4e15ac7?rik=NFiRzbrGQgWa7w&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1603%2f30%2fc0%2f19798911_1459348273568.jpg&ehk=yrDcSzLvJhCJimeOO1SHJ09Q2sXDQydkPdN4wqRuTVs%3d&risl=&pid=ImgRaw&r=0",
+        "https://ts1.cn.mm.bing.net/th/id/R-C.521e00219071d28390addd66c4e15ac7?rik=NFiRzbrGQgWa7w&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1603%2f30%2fc0%2f19798911_1459348273568.jpg&ehk=yrDcSzLvJhCJimeOO1SHJ09Q2sXDQydkPdN4wqRuTVs%3d&risl=&pid=ImgRaw&r=0",
+        "https://ts1.cn.mm.bing.net/th/id/R-C.521e00219071d28390addd66c4e15ac7?rik=NFiRzbrGQgWa7w&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1603%2f30%2fc0%2f19798911_1459348273568.jpg&ehk=yrDcSzLvJhCJimeOO1SHJ09Q2sXDQydkPdN4wqRuTVs%3d&risl=&pid=ImgRaw&r=0",
+        "https://ts1.cn.mm.bing.net/th/id/R-C.521e00219071d28390addd66c4e15ac7?rik=NFiRzbrGQgWa7w&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1603%2f30%2fc0%2f19798911_1459348273568.jpg&ehk=yrDcSzLvJhCJimeOO1SHJ09Q2sXDQydkPdN4wqRuTVs%3d&risl=&pid=ImgRaw&r=0",
+        "https://ts1.cn.mm.bing.net/th/id/R-C.521e00219071d28390addd66c4e15ac7?rik=NFiRzbrGQgWa7w&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1603%2f30%2fc0%2f19798911_1459348273568.jpg&ehk=yrDcSzLvJhCJimeOO1SHJ09Q2sXDQydkPdN4wqRuTVs%3d&risl=&pid=ImgRaw&r=0",
+    ]
 
     //计算滚动盒子宽度
     content.style.width = `${(imgs.length) * 700}px`
@@ -175,8 +182,8 @@
         }
         //因为是从第二个开始轮播，所以要减一
         let num = +indexContent - 1
-        //当下标为-1时，让下标为4，即最后一张图片
-        if (num == -1) num = 4
+        //当下标为-1时，让下标为数组长度的最后一个，即最后一张图片
+        if (num == -1) num = content.children.length - 1
         //给当前小点点添加样式
         subscript.children[num].classList.add('active')
     }
@@ -254,6 +261,8 @@
         })
     })
 
+
+   // 下面进行简单封装了一下
 
     // let ddd = {
     //     // 父盒子
