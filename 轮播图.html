@@ -190,10 +190,6 @@
         content.style.transform = `translateX(${700 * num}px)`;
         //判断轮播方向
         direction = num == -1 ? 'left' : 'right'
-        //当开关为true时让小点点的样式跟着变
-        if (flag) {
-            subscriptStyle(content.children[1].getAttribute('index'))
-        }
     }
 
     //监听点击事件
@@ -221,6 +217,10 @@
         content.style.transform = "none";
         //当开关为true时不执行play
         if (!flag) play(1000)
+        //当开关为true时让小点点的样式跟着变
+        if (flag) {
+            subscriptStyle(content.children[1].getAttribute('index'))
+        }
     })
 
     //给小点点绑定点击事件
@@ -366,6 +366,10 @@
     //             content.style.transform = "none";
     //             //当开关为true时不执行play
     //             if (!flag) play(times)
+     //当开关为true时让小点点的样式跟着变
+    //  if (flag) {
+    //         subscriptStyle(content.children[1].getAttribute('index'))
+    //     }
     //         })
 
     //         //给小点点绑定点击事件
