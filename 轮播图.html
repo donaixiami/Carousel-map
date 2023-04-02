@@ -152,6 +152,8 @@
     for (let i = 0; i < content.children.length; i++) {
         content.children[i].setAttribute('index', i)
     }
+    //个第一个添加上样式
+    subscript.children[0].classList.add('active')
 
     // 定义一个变量用来存储定时器
     let time = null;
@@ -160,15 +162,15 @@
     //定义一个变量用来存储开关
     let flag = false
     //延迟变量
-    let delay = 1000
+    let delay = 3000
 
     //定义一个函数控制函数轮播时间
-    function play(duration) {
+    function play() {
         clearTimeout(time);
-        time = setTimeout(() => carousel(-1), duration);
+        time = setTimeout(() => carousel(-1), delay);
     }
     //启用轮播定时器
-    play(delay);
+    play();
 
     //定义小点点样式函数
     function subscriptStyle(indexContent) {
@@ -219,26 +221,26 @@
         //重置translateX值，取消过渡效果
         content.style.transform = "none";
         //当开关为true时不执行play
-        if (!flag) play(delay)
+        if (!flag) play()
         //让小点点的样式跟着变
         subscriptStyle(content.children[1].getAttribute('index'))
     })
 
     //给小点点绑定点击事件
     subscript.addEventListener("click", (e) => {
-        clearTimeout(time);
         if (e.target.className === "list") {
             //获取点击的小点点下标
             const index = e.target.getAttribute('index')
+            //获取content子元素下标，当前显示的图片下标
+            const indexContent = content.children[1].getAttribute('index')
             //计算点击的小点点和当前显示的图片的下标差值
             const num = indexContent - index
             //禁掉过渡动画
             content.style.transition = "none";
             //根据差值判断循环跳转几次
-            for (let i = 0; i < content.children.length - num; i++) {
-                moveCarousel("left")
-            }
-            if (!flag) play(delay)
+            for (let i = 0; i < (content.children.length - num) + 1; i++) moveCarousel("left")
+            //让小点点的样式跟着变
+            subscriptStyle(+index + 1)
         }
     })
     //移入app盒子停止轮播
@@ -248,10 +250,19 @@
         // 移出app盒子继续轮播
         app.addEventListener("mouseleave", () => {
             flag = false
-            play(delay)
+            play()
         })
     })
-
+    // let aaa = 1
+    // setInterval(() => {
+    //     console.log(aaa++);
+    // }, 100);
+    // setInterval(() => {
+    //     console.log('val');
+    // }, 1000);
+    // setTimeout(() => {
+    //     console.log('out');
+    // }, 1000);
 
    // 下面进行简单封装了一下
 
