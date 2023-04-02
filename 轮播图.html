@@ -94,6 +94,7 @@
             margin: 0 5px 0 5px;
         }
 
+        /*小点点当前位置的样式*/
         .subscript .active {
             background: red;
         }
@@ -130,11 +131,7 @@
     //创建图片数组
     let imgs = ["https://ts1.cn.mm.bing.net/th/id/R-C.066f6e476e7500752d2d4079cf552248?rik=kG2nn2uYJS9gwg&riu=http%3a%2f%2fimage.qianye88.com%2fpic%2f58bdafff649da2748deba9c33523b541&ehk=AJHje9nuje4uo6h0bEvmylFnfYAmWeUphxGWLDtTZN4%3d&risl=&pid=ImgRaw&r=0", "https://ts1.cn.mm.bing.net/th/id/R-C.3f3563512ddcf9ee8f040fb9d9f7cbd4?rik=MyUvC%2fSSmabcSg&riu=http%3a%2f%2fimg.mm4000.com%2ffile%2fa%2fc8%2ff17d8fabe5.jpg%3fdown&ehk=vqJJjWDEcZqlCQkS1OQYsoUQZMy5LXnqyDnEumXgNpA%3d&risl=&pid=ImgRaw&r=0", "https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0C/04/ChMkJlX7spWIO6IkABNZggA_NeAAACwsgBQVrUAE1ma178.jpg", "https://ts1.cn.mm.bing.net/th/id/R-C.cbacf381f2ea27692c235bda74a58dd0?rik=CmZzyVss%2fFedrA&riu=http%3a%2f%2fpic.qqbizhi.com%2fallimg%2fbbpic%2f38%2f3938_5.jpg&ehk=T19sJsuTx1%2bbDV1o3EgLCVBpDkRwyT3JiOf10rG6HM0%3d&risl=&pid=ImgRaw&r=0",
         "https://ts1.cn.mm.bing.net/th/id/R-C.521e00219071d28390addd66c4e15ac7?rik=NFiRzbrGQgWa7w&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1603%2f30%2fc0%2f19798911_1459348273568.jpg&ehk=yrDcSzLvJhCJimeOO1SHJ09Q2sXDQydkPdN4wqRuTVs%3d&risl=&pid=ImgRaw&r=0",
-        "https://ts1.cn.mm.bing.net/th/id/R-C.521e00219071d28390addd66c4e15ac7?rik=NFiRzbrGQgWa7w&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1603%2f30%2fc0%2f19798911_1459348273568.jpg&ehk=yrDcSzLvJhCJimeOO1SHJ09Q2sXDQydkPdN4wqRuTVs%3d&risl=&pid=ImgRaw&r=0",
-        "https://ts1.cn.mm.bing.net/th/id/R-C.521e00219071d28390addd66c4e15ac7?rik=NFiRzbrGQgWa7w&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1603%2f30%2fc0%2f19798911_1459348273568.jpg&ehk=yrDcSzLvJhCJimeOO1SHJ09Q2sXDQydkPdN4wqRuTVs%3d&risl=&pid=ImgRaw&r=0",
-        "https://ts1.cn.mm.bing.net/th/id/R-C.521e00219071d28390addd66c4e15ac7?rik=NFiRzbrGQgWa7w&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1603%2f30%2fc0%2f19798911_1459348273568.jpg&ehk=yrDcSzLvJhCJimeOO1SHJ09Q2sXDQydkPdN4wqRuTVs%3d&risl=&pid=ImgRaw&r=0",
-        "https://ts1.cn.mm.bing.net/th/id/R-C.521e00219071d28390addd66c4e15ac7?rik=NFiRzbrGQgWa7w&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1603%2f30%2fc0%2f19798911_1459348273568.jpg&ehk=yrDcSzLvJhCJimeOO1SHJ09Q2sXDQydkPdN4wqRuTVs%3d&risl=&pid=ImgRaw&r=0",
-        "https://ts1.cn.mm.bing.net/th/id/R-C.521e00219071d28390addd66c4e15ac7?rik=NFiRzbrGQgWa7w&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1603%2f30%2fc0%2f19798911_1459348273568.jpg&ehk=yrDcSzLvJhCJimeOO1SHJ09Q2sXDQydkPdN4wqRuTVs%3d&risl=&pid=ImgRaw&r=0",
+
     ]
 
     //计算滚动盒子宽度
@@ -162,17 +159,16 @@
     let direction = 'left'
     //定义一个变量用来存储开关
     let flag = false
+    //延迟变量
+    let delay = 1000
 
     //定义一个函数控制函数轮播时间
     function play(duration) {
         clearTimeout(time);
         time = setTimeout(() => carousel(-1), duration);
-        //获取content子元素下标
-        const index = content.children[1].getAttribute('index')
-        subscriptStyle(index)
     }
     //启用轮播定时器
-    play(1000);
+    play(delay);
 
     //定义小点点样式函数
     function subscriptStyle(indexContent) {
@@ -188,7 +184,7 @@
         subscript.children[num].classList.add('active')
     }
 
-    //轮播函数
+    //平移函数
     function carousel(num) {
         clearTimeout(time);
         //设置过渡
@@ -209,7 +205,7 @@
 
 
     //移动函数
-    function moveCarousel(direction) {
+    function moveCarousel() {
         const child = direction === "left" ? content.children[0] : content.lastElementChild;
         content.removeChild(child);
         direction === "left" ? content.appendChild(child) : content.prepend(child);
@@ -219,15 +215,13 @@
     content.addEventListener("transitionend", () => {
         //禁掉过渡动画
         content.style.transition = "none";
-        moveCarousel(direction)
+        moveCarousel()
         //重置translateX值，取消过渡效果
         content.style.transform = "none";
         //当开关为true时不执行play
-        if (!flag) play(1000)
-        //当开关为true时让小点点的样式跟着变
-        if (flag) {
-            subscriptStyle(content.children[1].getAttribute('index'))
-        }
+        if (!flag) play(delay)
+        //让小点点的样式跟着变
+        subscriptStyle(content.children[1].getAttribute('index'))
     })
 
     //给小点点绑定点击事件
@@ -236,9 +230,6 @@
         if (e.target.className === "list") {
             //获取点击的小点点下标
             const index = e.target.getAttribute('index')
-            //获取content子元素下标，当前显示的图片下标
-            const indexContent = content.children[1].getAttribute('index')
-            subscriptStyle(index)
             //计算点击的小点点和当前显示的图片的下标差值
             const num = indexContent - index
             //禁掉过渡动画
@@ -247,7 +238,7 @@
             for (let i = 0; i < content.children.length - num; i++) {
                 moveCarousel("left")
             }
-            if (!flag) play(1000)
+            if (!flag) play(delay)
         }
     })
     //移入app盒子停止轮播
@@ -257,7 +248,7 @@
         // 移出app盒子继续轮播
         app.addEventListener("mouseleave", () => {
             flag = false
-            play(1000)
+            play(delay)
         })
     })
 
@@ -313,9 +304,6 @@
     //         function play(duration) {
     //             clearTimeout(time);
     //             time = setTimeout(() => carousel(-1), duration);
-    //             //获取content子元素下标
-    //             const index = content.children[1].getAttribute('index')
-    //             subscriptStyle(index)
     //         }
     //         //启用轮播定时器
     //         play(times);
@@ -344,10 +332,8 @@
     //             content.style.transform = `translateX(${700 * num}px)`;
     //             //判断轮播方向
     //             direction = num == -1 ? 'left' : 'right'
-    //             //当开关为true时让小点点的样式跟着变
-    //             if (flag) {
+    //             //让小点点的样式跟着变
     //                 subscriptStyle(content.children[1].getAttribute('index'))
-    //             }
     //         }
 
     //         //监听点击事件
@@ -375,11 +361,9 @@
     //             content.style.transform = "none";
     //             //当开关为true时不执行play
     //             if (!flag) play(times)
-     //当开关为true时让小点点的样式跟着变
-    //  if (flag) {
-    //         subscriptStyle(content.children[1].getAttribute('index'))
-    //     }
-    //         })
+                   //让小点点的样式跟着变
+    //             subscriptStyle(content.children[1].getAttribute('index'))
+    //                 })
 
     //         //给小点点绑定点击事件
     //         subscript.addEventListener("click", (e) => {
@@ -389,7 +373,6 @@
     //                 const index = e.target.getAttribute('index')
     //                 //获取content子元素下标，当前显示的图片下标
     //                 const indexContent = content.children[1].getAttribute('index')
-    //                 subscriptStyle(index)
     //                 //计算点击的小点点和当前显示的图片的下标差值
     //                 const num = indexContent - index
     //                 //禁掉过渡动画
